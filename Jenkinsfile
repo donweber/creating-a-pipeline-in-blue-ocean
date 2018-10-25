@@ -25,5 +25,10 @@ pipeline {
         sh './jenkins/scripts/deliver.sh'
       }
     }
+    stage('Wait for Interactive') {
+      steps {
+        input 'Finished using the web site? (Click "Proceed" to continue) '
+      }
+    }
   }
 }
